@@ -96,7 +96,7 @@ public class Tecnico extends Personal{
         String reporte = sc.nextLine();
         System.out.println("¿Desea enviar un correo para notificar el reporte? Si es asi escriba la letra S, de lo contrario escriba N");
         String confirmacion = sc.nextLine();
-        while(!confirmacion.toUpperCase().equals("S") && !confirmacion.toUpperCase().equals("N")){
+        while(!confirmacion.equalsIgnoreCase("S") && !confirmacion.equalsIgnoreCase("N")){
             System.out.println("Ingrese una opcion valida");
             confirmacion = sc.nextLine();
         }

@@ -34,53 +34,55 @@ import java.util.Scanner;
     
     
     
-    public static void logIn(){ // cambie a void en lugar de boolean
-      boolean registrado = false;
-      String user;
-      String contra;
-      Scanner sc = new Scanner(System.in);
-      while(!registrado){
-        System.out.println("Ingrese usuario: ");
-        user = sc.nextLine();
-        
-        System.out.println("Ingrese contrasena: ");
-        contra = sc.nextLine();
-      
-        registrado = listaUsuarios.contains(new Personal(user, contra, "deprueba",Cargo.ADMIN));
-        if (registrado){
-            for(Personal persona: listaUsuarios){
-                boolean personaCorrecta = persona.equals(new Personal(user,contra,"Deprueba",Cargo.ADMIN));
-                if(personaCorrecta){
+    public static void logIn() {
+        Scanner sc = new Scanner(System.in);
+        boolean registrado = false;
+    
+        while (!registrado) {
+            String user = solicitarInput(sc, "Ingrese usuario: ");
+            String contra = solicitarInput(sc, "Ingrese contrasena: ");
+    
+            registrado = listaUsuarios.contains(new Personal(user, contra, "deprueba", Cargo.ADMIN));
+    
+            if (registrado) {
+                Personal persona = buscarUsuario(user, contra);
+    
+                if (persona != null) {
                     System.out.println("Registrado Con Exito");
-                    if (persona instanceof Admin){
-                        Admin esAdministrador = (Admin) persona;
-                        esAdministrador.mostrarMenu();
-                        }
-                    else if (persona instanceof Cobranza){
-                        Cobranza esCobranza = (Cobranza) persona;
-                        esCobranza.mostrarMenu();
-                        }
-                    else if(persona instanceof Tecnico){
-                        Tecnico esTecnico = (Tecnico) persona;
-                        esTecnico.mostrarMenu();
-                        } 
-                     //para que sepa el tecnico deberia conseguir cual es el tecnico en la lista no solo hacer el downcasting ya no creo
-
+                    mostrarMenuPorTipo(persona);
+                }
+            } else {
+                System.out.println("Usuario no encontrado, vuelva a intentarlo.");
             }
-            }
-            //desea continuar y la regresa al bucle de registro o sale
-      }
-        else{
-            System.out.println("Usuario no encontrado, vuelva a intentarlo.");
-            
         }
-        
-      
-      }
-      sc.close();
-      
-      
-  }
+    }
+
+    private static String solicitarInput(Scanner sc, String mensaje) {
+        System.out.println(mensaje);
+        return sc.nextLine();
+    }
+
+    private static Personal buscarUsuario(String user, String contra) {
+        for (Personal persona : listaUsuarios) {
+            if (persona.equals(new Personal(user, contra, "deprueba", Cargo.ADMIN))) {
+                return persona;
+            }
+        }
+        return null;
+    }
+    
+    private static void mostrarMenuPorTipo(Personal persona) {
+        if (persona instanceof Admin) {
+            ((Admin) persona).mostrarMenu();
+        } else if (persona instanceof Cobranza) {
+            ((Cobranza) persona).mostrarMenu();
+        } else if (persona instanceof Tecnico) {
+            ((Tecnico) persona).mostrarMenu();
+        }
+    }
+    
+    
+    
         
     
         
