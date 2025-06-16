@@ -2,6 +2,7 @@
 package com.mycompany.proyectopoo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrdenServicio {
     private String[] fecha = new String[3];
@@ -11,7 +12,7 @@ public class OrdenServicio {
     private Tecnico tecnico;
     private ArrayList<Servicio> listaServiciosRealizados;
     
-    public OrdenServicio(Cliente cliente, Tecnico tecnico, String[] fecha, String placaVehiculo, int tipoVehiculo, ArrayList<Servicio> listaServiciosRealizados){
+    public OrdenServicio(Cliente cliente, Tecnico tecnico, String[] fecha, String placaVehiculo, int tipoVehiculo, List<Servicio> listaServiciosRealizados){
         this.cliente = cliente;
         this.tecnico = tecnico;
         this.fecha = fecha;
@@ -32,7 +33,7 @@ public class OrdenServicio {
         return tecnico;
     }
 
-    public ArrayList<Servicio> getListaServiciosRealizados() {
+    public List<Servicio> getListaServiciosRealizados() {
         return listaServiciosRealizados;
     }
     
