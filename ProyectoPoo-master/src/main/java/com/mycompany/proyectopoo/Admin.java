@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 public class Admin extends Personal{
     private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
     private static final String ACTION_1 = "Ingrese el número de una acción valida";  // Compliant
+    private static final String ACTION_2 = "Seleccione el número de la acción que desea realizar:";  // Compliant
+
 
     public Admin(String usuario, String contrasena, String nombre, Cargo cargo) {
         super(usuario,contrasena,nombre,cargo);
@@ -14,7 +16,7 @@ public class Admin extends Personal{
     @Override
     public void mostrarMenu(){
         Scanner sc = new Scanner(System.in);
-        LOGGER.info("Seleccione el número de la acción que desea realizar:");
+        LOGGER.info(ACTION_2);
         LOGGER.info("1. Administrar clientes.\n2. Administrar proveedores. \n3. Administrar servicios.");
         int opcion = sc.nextInt();
         sc.nextLine();
@@ -37,7 +39,7 @@ public class Admin extends Personal{
     
     public void administrarClientes(){
     // mostrar los clientes
-        LOGGER.info("Seleccione el numero de opción que desea realizar.");
+        LOGGER.info(ACTION_2);
         LOGGER.info("1. Agregar Cliente.\n2. Regresar al menú principal");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
@@ -76,7 +78,7 @@ public class Admin extends Personal{
 
     public void administrarProveedor(){
         // mostrar los proveedores
-        System.out.println("Seleccione el numero de opción que desea realizar.");
+        System.out.println(ACTION_2);
         System.out.println("1. Agregar Proveedor.\n2. Regresar al menú principal");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();

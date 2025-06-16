@@ -18,6 +18,8 @@ public class Factura {
         this.listaOrdenesCliente = listaOrdenesCliente;
     }
     
-    public void imprimeFactura(){}
+    public void imprimeFactura(){
+        throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+    }
    
 }
