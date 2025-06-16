@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 public class Admin extends Personal{
     private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
+    private static final String ACTION_1 = "Ingrese el número de una acción valida";  // Compliant
 
     public Admin(String usuario, String contrasena, String nombre, Cargo cargo) {
         super(usuario,contrasena,nombre,cargo);
@@ -20,7 +21,7 @@ public class Admin extends Personal{
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 3){
-            System.out.println("Ingrese el número de una acción valida");
+            System.out.println(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -44,7 +45,7 @@ public class Admin extends Personal{
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 2){
-            LOGGER.info("Ingrese el número de una acción valida");
+            LOGGER.info(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -83,7 +84,7 @@ public class Admin extends Personal{
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 2){
-            System.out.println("Ingrese el número de una acción valida");
+            System.out.println(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -120,7 +121,7 @@ public class Admin extends Personal{
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 3){
-            System.out.println("Ingrese el número de una acción valida");
+            System.out.println(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
