@@ -1,10 +1,11 @@
-
 package com.mycompany.proyectopoo;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.logging.Logger;
+
 
 public class Admin extends Personal{
-    
+    private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
+
     public Admin(String usuario, String contrasena, String nombre, Cargo cargo) {
         super(usuario,contrasena,nombre,cargo);
     }
@@ -12,8 +13,8 @@ public class Admin extends Personal{
     @Override
     public void mostrarMenu(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Seleccione el número de la acción que desea realizar:");
-        System.out.println("1. Administrar clientes.\n2. Administrar proveedores. \n3. Administrar servicios.");
+        LOGGER.info("Seleccione el número de la acción que desea realizar:");
+        LOGGER.info("1. Administrar clientes.\n2. Administrar proveedores. \n3. Administrar servicios.");
         int opcion = sc.nextInt();
         sc.nextLine();
         
@@ -35,15 +36,15 @@ public class Admin extends Personal{
     
     public void administrarClientes(){
     // mostrar los clientes
-        System.out.println("Seleccione el numero de opción que desea realizar.");
-        System.out.println("1. Agregar Cliente.\n2. Regresar al menú principal");
+        LOGGER.info("Seleccione el numero de opción que desea realizar.");
+        LOGGER.info("1. Agregar Cliente.\n2. Regresar al menú principal");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
         sc.nextLine();
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 2){
-            System.out.println("Ingrese el número de una acción valida");
+            LOGGER.info("Ingrese el número de una acción valida");
             opcion = sc.nextInt();
             sc.nextLine();
         }
