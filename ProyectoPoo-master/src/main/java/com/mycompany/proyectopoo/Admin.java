@@ -23,7 +23,7 @@ public class Admin extends Personal{
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 3){
-            System.out.println(ACTION_1);
+            LOGGER.info(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -78,15 +78,15 @@ public class Admin extends Personal{
 
     public void administrarProveedor(){
         // mostrar los proveedores
-        System.out.println(ACTION_2);
-        System.out.println("1. Agregar Proveedor.\n2. Regresar al menú principal");
+        LOGGER.info(ACTION_2);
+        LOGGER.info("1. Agregar Proveedor.\n2. Regresar al menú principal");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
         sc.nextLine();
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 2){
-            System.out.println(ACTION_1);
+            LOGGER.info(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -115,15 +115,15 @@ public class Admin extends Personal{
     
     public void administrarServicios(){
     // mostrar los clientes
-        System.out.println("Seleccione el numero de opción que desea realizar.");
-        System.out.println("1. Agregar Servicio.\n2. Editar Servicio.\n3. Regresar al menú principal");
+        LOGGER.info("Seleccione el numero de opción que desea realizar.");
+        LOGGER.info("1. Agregar Servicio.\n2. Editar Servicio.\n3. Regresar al menú principal");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
         sc.nextLine();
         
         //verificacion de uso de opcion correcta
         while(opcion < 1 && opcion > 3){
-            System.out.println(ACTION_1);
+            LOGGER.info(ACTION_1);
             opcion = sc.nextInt();
             sc.nextLine();
         }
@@ -150,7 +150,7 @@ public class Admin extends Personal{
     }
     
     public void modificarValorServicio(){
-        System.out.println("Indique el código del servicio que desea modificar.");
+        LOGGER.info("Indique el código del servicio que desea modificar.");
         Scanner sc = new Scanner(System.in);
         int codigo = sc.nextInt();
         sc.nextLine();
